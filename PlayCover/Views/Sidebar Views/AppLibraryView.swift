@@ -94,6 +94,9 @@ struct AppLibraryView: View {
             }
         }
         .searchable(text: $searchString, placement: .toolbar)
+        .onChange(of: selected?.url, perform: { _ in
+            appsVM.selectedApp = selected
+        })
         .onChange(of: searchString, perform: { value in
             appsVM.searchText = value
             appsVM.fetchApps()

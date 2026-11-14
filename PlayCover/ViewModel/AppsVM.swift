@@ -28,6 +28,8 @@ class AppsVM: ObservableObject {
     @Published var apps: [PlayApp] = []
     @Published var searchText: String = ""
     @Published var updatingApps = true
+    /// App currently selected in the App Library (used by menu-bar commands)
+    @Published var selectedApp: PlayApp?
 
     func fetchApps() {
         Task { @MainActor in

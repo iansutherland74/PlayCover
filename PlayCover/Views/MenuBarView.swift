@@ -63,6 +63,8 @@ struct PlayCoverHelpMenuView: Commands {
 }
 
 struct PlayCoverViewMenuView: Commands {
+    @ObservedObject var appsVM = AppsVM.shared
+
     var body: some Commands {
         CommandGroup(replacing: .newItem) {}
         CommandGroup(replacing: .importExport) {
@@ -105,6 +107,13 @@ struct PlayCoverViewMenuView: Commands {
                     }
                 }
             }
+        }
+        CommandGroup(after: .toolbar) {
+            Button("menubar.toggleKeymapping", systemImage: "keyboard") {
+                KeymapToggleService.shared.toggleTarget()
+            }
+            .keyboardShortcut("K", modifiers: [.control, .option, .command])
+            .disabled(appsVM.selectedApp == nil)
         }
         CommandGroup(before: .sidebar) {
             Button("menubar.clearCache", systemImage: "eraser.fill") {

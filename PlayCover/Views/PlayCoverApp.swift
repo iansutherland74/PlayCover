@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UpdateScheme.checkForUpdate()
+        KeymapToggleService.shared.registerGlobalHotKey()
 
         UserDefaults.standard.register(
             defaults: ["NSApplicationCrashOnExceptions": true]

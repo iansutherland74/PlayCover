@@ -246,6 +246,9 @@
 "menubar.checkForUpdates" = "Check for Updates...";
 "menubar.clearCache" = "Clear Cache";
 "menubar.configSigning" = "Configure Signing";
+"menubar.toggleKeymapping" = "Toggle Keymapping & Relaunch";
+"keymapToggle.on" = "Keymapping turned ON for %@. Relaunching if it was running.";
+"keymapToggle.off" = "Keymapping turned OFF for %@. Relaunching if it was running.";
 
 "soundAlert.messageText" = "Incorrect Audio Settings Detected!";
 "soundAlert.informativeText" = "Your current output device does not have a sample rate of 48 or 44.1 kHz! Crashes may occur. Would you like to change your current output device's sample rate to 48 kHz?";
