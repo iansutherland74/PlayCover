@@ -25,6 +25,8 @@ extension PlayApp {
         guard !isStarting else { return }
 
         let running = runningInstances
+        // Re-read from disk: another PlayApp instance (e.g. the settings sheet) may have changed it
+        settings.decode()
         settings.settings.keymapping.toggle()
         let enabled = settings.settings.keymapping
         Log.shared.log("Keymapping \(enabled ? "enabled" : "disabled") for \(info.bundleIdentifier)")
